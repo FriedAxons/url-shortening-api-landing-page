@@ -23,8 +23,13 @@ export const useShortenURL = () => {
         ...prev,
         { original: url, short: response.data.result_url },
       ]);
-    } catch {
-      setError("Failed to shorten the URL. Please try again.");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        const errorMessage = err?.response?.data?.error || "Failed to shorten the URL. Please try again."
+        setError(errorMessage);
+      } else {
+        setError("An unexpected error occurred.")
+      }
     } finally {
       setLoading(false);
     }
