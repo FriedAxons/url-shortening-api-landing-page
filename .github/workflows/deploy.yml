@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on pushes to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Use v4 for the latest checkout action
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: "latest"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Step 4: Build the project with Vite
+      - name: Build project
+        run: |
+          npm run build
+          ls -al dist
+
+      # Step 5: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./dist # Specify the build output folder (should match your Vite config)
+
+    permissions:
+      contents: write # Ensure the GitHub token has write access to contents
