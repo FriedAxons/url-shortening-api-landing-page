@@ -12,7 +12,7 @@ export default {
       },
       colors: {
         cyan: "hsl(180, 66%, 49%)",
-        cyanlight: "hsl(180, 66%, 70%)",
+        cyanlight: "hsl(180, 66%, 70%)", // For ShortenURL component button
         darkviolet: "hsl(257, 27%, 26%)",
         red: "hsl(0, 87%, 67%)",
         gray: "hsl(0, 0%, 75%)",
