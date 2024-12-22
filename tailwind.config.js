@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        lg: "1440px",
+        xl: "1920px",
+      },
       colors: {
         cyan: "hsl(180, 66%, 49%)",
         darkviolet: "hsl(257, 27%, 26%)",

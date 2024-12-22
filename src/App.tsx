@@ -3,7 +3,7 @@ import HeroSection from "./components/HeroSection";
 
 const App = () => {
   return (
-    <div className="lg:x-p mx-p">
+    <div className="w-full h-screen lg:x-p mx-p">
       <Navbar />
       <HeroSection />
     </div>
