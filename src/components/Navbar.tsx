@@ -35,7 +35,7 @@ const Navbar = () => {
 
       <div className="flex flex-row text-sm font-semibold gap-x-9">
         <button className="text-grayishviolet hover:font-bold">Login</button>
-        <button className="py-1.5 px-4 text-white bg-cyan rounded-full">
+        <button className="py-1.5 px-4 text-white bg-cyan hover:bg-opacity-50 rounded-full">
           Sign Up
         </button>
       </div>
