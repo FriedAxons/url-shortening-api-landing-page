@@ -9,7 +9,11 @@
 }
 
 @layer utilities {
-  /* .x-p {} */
+  .x-p {
+    @apply px-32;
+  }
 
-  /* .mx-p {} */
+  .mx-p {
+    @apply px-5;
+  }
 }
