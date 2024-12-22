@@ -6,8 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {},
-      fontFamily: {},
+      colors: {
+        cyan: "hsl(180, 66%, 49%)",
+        darkviolet: "hsl(257, 27%, 26%)",
+        red: "hsl(0, 87%, 67%)",
+        gray: "hsl(0, 0%, 75%)",
+        grayishviolet: "hsl(257, 7%, 63%)",
+        darkblue: "hsl(255, 11%, 22%)",
+        verydarkviolet: "hsl(260, 8%, 14%)",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

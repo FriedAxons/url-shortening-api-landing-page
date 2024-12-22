@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #root {
+    @apply font-poppins;
+  }
+}
+
+@layer utilities {
+  /* .x-p {} */
+
+  /* .mx-p {} */
+}
