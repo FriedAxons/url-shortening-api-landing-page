@@ -13,12 +13,12 @@ const HeroSection = () => {
           Build your brand's recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button className="py-2 px-7 mt-5 text-white bg-cyan hover:bg-opacity-50 rounded-full">
+        <button className="py-2 px-7 mt-7 text-white bg-cyan hover:bg-opacity-50 rounded-full">
           Get Started
         </button>
       </div>
       <img
-        src="/url-shortening-api-landing-page/icons/illustration-working.svg"
+        src="/url-shortening-api-landing-page/svgs/illustration-working.svg"
         alt="Working Illustration"
         className="w-1/2"
       />
@@ -28,7 +28,7 @@ const HeroSection = () => {
   const MobileHeroSection = () => (
     <div className="relative flex flex-col justify-center items-center">
       <img
-        src="/url-shortening-api-landing-page/icons/illustration-working.svg"
+        src="/url-shortening-api-landing-page/svgs/illustration-working.svg"
         alt="Working Illustration"
         className="absolute top-0 left-[50px] mt-5"
       />

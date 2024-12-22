@@ -6,7 +6,7 @@ const Navbar = () => {
   const MobileNavbar = () => (
     <div className="flex flex-row justify-between items-center">
       <img
-        src="/url-shortening-api-landing-page/icons/logo.svg"
+        src="/url-shortening-api-landing-page/svgs/logo.svg"
         alt="Logo"
         className="h-[30px]"
       />
@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className="flex flex-row justify-between items-center">
       <div className="flex flex-row items-center text-grayishviolet text-sm font-semibold gap-x-9">
         <img
-          src="/url-shortening-api-landing-page/icons/logo.svg"
+          src="/url-shortening-api-landing-page/svgs/logo.svg"
           alt="Logo"
           className="h-[26px]"
         />

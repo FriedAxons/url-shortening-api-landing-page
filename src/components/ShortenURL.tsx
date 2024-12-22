@@ -19,14 +19,22 @@ const ShortenURL = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-row justify-between items-center bg-[url('/url-shortening-api-landing-page/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet px-12 py-10 rounded-lg"
+      >
         <input
           type="text"
           placeholder="Shorten a link here..."
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+          className="w-[89.5%] px-6 py-3 rounded-lg focus:outline-none"
         />
-        <button type="submit" disabled={loading}>
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-cyan hover:bg-cyanlight text-white font-semibold px-8 py-3 rounded-lg"
+        >
           {loading ? "Shortening..." : "Shorten it!"}
         </button>
       </form>

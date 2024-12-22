@@ -17,8 +17,6 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 ### The challenge
 
-Your challenge is to build out this landing page, integrate with the [Clean URI API](https://cleanuri.com/docs) and get it looking as close to the design as possible.
-
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
 Users should be able to:
