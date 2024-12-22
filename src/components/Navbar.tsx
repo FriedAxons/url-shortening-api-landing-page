@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const DesktopNavbar = () => (
     <nav className="flex flex-row justify-between items-center">
-      <div className="flex flex-row items-center text-grayishviolet text-sm font-semibold gap-x-8">
+      <div className="flex flex-row items-center text-grayishviolet text-sm font-semibold gap-x-9">
         <img
           src="/url-shortening-api-landing-page/icons/logo.svg"
           alt="Logo"
@@ -33,9 +33,9 @@ const Navbar = () => {
         <button className="hover:font-bold">Resources</button>
       </div>
 
-      <div className="flex flex-row text-sm font-semibold gap-x-8">
+      <div className="flex flex-row text-sm font-semibold gap-x-9">
         <button className="text-grayishviolet hover:font-bold">Login</button>
-        <button className="py-1.5 px-3 text-white bg-cyan rounded-full">
+        <button className="py-1.5 px-4 text-white bg-cyan rounded-full">
           Sign Up
         </button>
       </div>
