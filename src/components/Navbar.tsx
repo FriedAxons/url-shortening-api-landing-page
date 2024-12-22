@@ -4,11 +4,11 @@ const Navbar = () => {
   const isMobile = useIsMobile();
 
   const MobileNavbar = () => (
-    <div className="flex flex-row justify-between items-center mx-p">
+    <div className="flex flex-row justify-between items-center">
       <img
         src="/url-shortening-api-landing-page/icons/logo.svg"
         alt="Logo"
-        className="h-[28px]"
+        className="h-[30px]"
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,30 +21,28 @@ const Navbar = () => {
   );
 
   const DesktopNavbar = () => (
-    <div className="flex flex-row justify-between items-center x-p">
+    <nav className="flex flex-row justify-between items-center">
       <div className="flex flex-row items-center text-grayishviolet text-sm font-semibold gap-x-8">
         <img
           src="/url-shortening-api-landing-page/icons/logo.svg"
           alt="Logo"
-          className="h-[28px]"
+          className="h-[26px]"
         />
-        <p>Features</p>
-        <p>Pricing</p>
-        <p>Resources</p>
+        <button className="hover:font-bold">Features</button>
+        <button className="hover:font-bold">Pricing</button>
+        <button className="hover:font-bold">Resources</button>
       </div>
 
       <div className="flex flex-row text-sm font-semibold gap-x-8">
-        <button className="text-grayishviolet">Login</button>
-        <button className="py-1 px-3 text-white bg-cyan rounded-full">
+        <button className="text-grayishviolet hover:font-bold">Login</button>
+        <button className="py-1.5 px-3 text-white bg-cyan rounded-full">
           Sign Up
         </button>
       </div>
-    </div>
+    </nav>
   );
 
-  return (
-    <nav className="">{isMobile ? <MobileNavbar /> : <DesktopNavbar />}</nav>
-  );
+  return <>{isMobile ? <MobileNavbar /> : <DesktopNavbar />}</>;
 };
 
 export default Navbar;

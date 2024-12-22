@@ -10,10 +10,10 @@
 
 @layer utilities {
   .x-p {
-    @apply px-32;
+    @apply px-32 py-10;
   }
 
   .mx-p {
-    @apply px-5;
+    @apply px-5 py-8;
   }
 }
