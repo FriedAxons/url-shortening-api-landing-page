@@ -32,15 +32,15 @@ const HeroSection = () => {
         alt="Working Illustration"
         className="absolute top-0 left-[50px] mt-5"
       />
-      <div className="flex flex-col">
-        <h1 className="mt-[260px] text-4xl text-center font-extrabold text-verydarkviolet">
+      <div className="text-center">
+        <h1 className="mt-[260px] leading-[45px] text-[40px] font-extrabold text-verydarkviolet">
           More than just shorter links
         </h1>
-        <p className="mt-2 text-lg text-center text-gray font-medium">
+        <p className="mt-3 text-lg text-gray font-medium">
           Build your brand's recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button className="py-4 mt-5 text-white text-lg font-semibold bg-cyan hover:bg-opacity-50 rounded-full">
+        <button className="py-3 px-12 mt-6 text-white text-lg font-semibold bg-cyan hover:bg-opacity-50 rounded-full">
           Get Started
         </button>
       </div>
