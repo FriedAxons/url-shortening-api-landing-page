@@ -1,9 +1,9 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - main  # Trigger the workflow when pushing to the main branch
 
 jobs:
   build-and-deploy:
@@ -23,7 +23,7 @@ jobs:
       # Step 3: Install frontend dependencies
       - name: Install frontend dependencies
         run: |
-          cd ./frontend
+          cd frontend
           npm install
 
       # Step 4: Clean the dist folder (if it exists) before building
@@ -32,30 +32,24 @@ jobs:
           cd frontend
           rm -rf dist  # Remove any old dist folder before building
 
-      # Step 5: Build the React app with Vite
-      - name: Build React app
+      # Step 5: Build the project with Vite
+      - name: Build project
         run: |
           cd frontend
           npm run build  # Run the Vite build process
 
-      # Step 6: List contents of the dist folder to ensure the build was successful
-      - name: List dist folder contents
-        run: |
-          cd frontend
-          ls -al dist
-
-      # Step 7: Ensure the dist folder has correct permissions
+      # Step 6: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
           cd frontend
           chmod -R 755 dist  # Ensure the dist folder is readable and writable
 
-      # Step 8: Deploy to GitHub Pages using the JamesIves GitHub Pages Deploy Action
+      # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist  # Specify the build output folder inside 'frontend'
-          branch: gh-pages  # Ensure deployment is made to gh-pages branch
+          folder: frontend/dist  # Specify the build output folder
+          branch: gh-pages  # Deploy to the gh-pages branch
 
     permissions:
       contents: read  # Ensure the GitHub token has read access to contents
