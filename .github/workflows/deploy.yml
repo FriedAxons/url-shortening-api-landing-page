@@ -22,14 +22,14 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install frontend dependencies
-        working-directory: ./frontend # Navigate to the frontend folder
         run: |
+          cd frontend
           npm install
 
       # Step 4: Build the project with Vite
       - name: Build project
-        working-directory: ./frontend # Navigate to the frontend folder
         run: |
+          cd frontend
           npm run build
           ls -al frontend/dist
 
@@ -37,7 +37,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist # Specify the build output folder (should match your Vite config)
+          folder: ./frontend/dist # Specify the build output folder (should match your Vite config)
 
     permissions:
       contents: write # Ensure the GitHub token has write access to contents

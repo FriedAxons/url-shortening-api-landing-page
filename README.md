@@ -44,6 +44,7 @@ Users should be able to:
 - Vite
 - Tailwind
 - Axios
+- Render (Backend handling API request)
 
 ## Author
 
