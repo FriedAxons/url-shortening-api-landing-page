@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "";
+const API_URL = "https://url-shortening-api-landing-page-5s4h.onrender.com";
 // Initialize shortenedLinks as an array of objects
 export const useShortenURL = () => {
   const [shortenedLinks, setShortenedLinks] = useState<
