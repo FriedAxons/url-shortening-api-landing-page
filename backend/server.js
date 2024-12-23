@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000; // Port for the Express server
 
 const allowedOrigins = [
-  "http://localhost:3000", // Local development
+  "http://localhost:5173", // Local development
   "https://friedaxons.github.io/url-shortening-api-landing-page/", // Production
 ];
 
