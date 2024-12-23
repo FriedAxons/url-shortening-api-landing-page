@@ -14,51 +14,19 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.1.0 
         with:
           node-version: "latest"
 
-      - name: Install frontend dependencies
+      - name: Install dependencies
         run: |
           cd frontend
           npm install
-
-      - name: Clean dist folder
-        run: |
-          cd frontend
-          rm -rf dist
 
       - name: Build project
         run: |
           cd frontend
           npm run build
-          echo "Build complete, checking dist folder:"
-          ls -la frontend/dist  # Verify that dist folder exists
-
-      - name: List build output
-        run: |
-          cd frontend
-          ls -la dist  # Ensure the dist folder has the build output
-
-      - name: Fix permissions on dist folder
-        run: |
-          cd frontend
-          chmod -R 755 dist
-
-      - name: Create gh-pages branch if it doesn't exist
-        run: |
-          git fetch origin gh-pages || git checkout --orphan gh-pages
-
-      - name: Configure Git author
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - name: Commit and push build to gh-pages
-        run: |
-          git add -A
-          git commit -m "Deploy to GitHub Pages"
-          git push --force --set-upstream origin gh-pages
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

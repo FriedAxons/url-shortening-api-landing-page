@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/url-shortening-api-landing-page/",
   build: {
-    outDir: "frontend/dist",
+    outDir: "dist",
   },
 });
