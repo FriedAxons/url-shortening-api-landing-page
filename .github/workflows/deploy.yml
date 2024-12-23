@@ -48,8 +48,9 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist  # Specify the build output folder
           branch: gh-pages  # Deploy to the gh-pages branch
+          folder: frontend/dist  # Specify the build output folder
+          token: ${{ secrets.GITHUB_TOKEN }} # Use the provided Github token
 
     permissions:
       contents: read  # Ensure the GitHub token has read access to contents
