@@ -39,18 +39,18 @@ jobs:
           ls -al  # List contents before building to verify file structure
           npm run build  # Run the Vite build process
           ls -al  # List contents after build to confirm the build
-          ls -al frontend/dist  # List contents of dist folder to ensure the build output is created
+          ls -al dist  # List contents of dist folder to ensure the build output is created
 
       # Step 6: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
-          chmod -R 755 frontend/dist  # Ensure the dist folder is readable and writable
+          chmod -R 755 dist  # Ensure the dist folder is readable and writable
 
       # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist  # Specify the build output folder
+          folder: dist  # Specify the build output folder
           branch: gh-pages  # Ensure deployment is made to gh-pages branch
 
     permissions:
