@@ -21,12 +21,14 @@ jobs:
           node-version: "latest"
 
       # Step 3: Install dependencies
-      - name: Install dependencies
+      - name: Install frontend dependencies
+        working-directory: ./frontend # Navigate to the frontend folder
         run: |
           npm install
 
       # Step 4: Build the project with Vite
       - name: Build project
+        working-directory: ./frontend # Navigate to the frontend folder
         run: |
           npm run build
           ls -al frontend/dist
