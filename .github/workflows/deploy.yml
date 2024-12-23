@@ -32,7 +32,6 @@ jobs:
           cd frontend
           ls -al
           npm run build
-          # List the contents of the frontend directory after the build to confirm 'dist' exists
           ls -al 
           ls -al frontend/dist 
 

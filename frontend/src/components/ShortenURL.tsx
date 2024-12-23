@@ -21,7 +21,7 @@ const ShortenURL = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-row justify-between items-center bg-[url('./svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet px-12 py-10 rounded-lg"
+        className="flex flex-row justify-between items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet px-12 py-10 rounded-lg"
       >
         <input
           type="text"
