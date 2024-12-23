@@ -5,9 +5,20 @@ import cors from "cors";
 const app = express();
 const port = process.env.PORT || 5000; // Port for the Express server
 
+const allowedOrigins = [
+  "http://localhost:3000", // Local development
+  "https://friedaxons.github.io/url-shortening-api-landing-page/", // Production
+];
+
 const corsOptions = {
-  origin: "https://friedaxons.github.io/url-shortening-api-landing-page/",
-  methods: ["GET", "POST"], // Allow GET and POST requests
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST"],
 };
 // Enable CORS for all routes
 app.use(cors(corsOptions));
