@@ -39,9 +39,11 @@ jobs:
           npm run build  # Run the Vite build process
 
       # Step 6: List the dist directory contents for debugging
+      # This step ensures the build output is in the expected folder
       - name: List build output
         run: |
-          ls -la frontend/dist  # Ensure the dist folder has the build output
+          cd frontend
+          ls -la dist  # Ensure the dist folder has the build output
 
       # Step 7: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
@@ -72,7 +74,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Deploy to the gh-pages branch
-          folder: frontend/dist  # Specify the build output folder
+          folder: frontend/dist  # Specify the build output folder (update if necessary)
           token: ${{ secrets.GITHUB_TOKEN }} # Use the provided Github token
 
     permissions:
