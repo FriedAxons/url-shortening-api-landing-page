@@ -14,28 +14,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js environment
+      # Step 2: List files in the root directory to confirm 'frontend' exists
+      - name: List files after checkout
+        run: |
+          ls -al
+
+      # Step 3: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v4.1.0
         with:
           node-version: "latest"
 
-      # Step 3: Install dependencies
+      # Step 4: Install frontend dependencies
       - name: Install frontend dependencies
         run: |
           cd frontend
           npm install
 
-      # Step 4: Build the project with Vite
+      # Step 5: Build the project with Vite
       - name: Build project
         run: |
           cd frontend
           npm run build
-          # List the contents of the frontend directory after the build to confirm 'dist' exists
+          # List the contents of the 'frontend' and 'frontend/dist' directories after build
           ls -al frontend
-          ls -al frontend/dist 
+          ls -al frontend/dist
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
