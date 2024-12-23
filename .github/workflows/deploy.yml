@@ -31,7 +31,9 @@ jobs:
         run: |
           cd frontend
           npm run build
-          ls -al ./frontend
+          # List the contents of the frontend directory after the build to confirm 'dist' exists
+          ls -al frontend
+          ls -al frontend/dist 
 
       # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
