@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy React App to GitHub Pages
 
 on:
   push:
@@ -32,22 +32,25 @@ jobs:
           cd frontend
           rm -rf dist  # Remove any old dist folder before building
 
-      # Step 5: Build the project with Vite
-      - name: Build project
+      # Step 5: Build the React app with Vite
+      - name: Build React app
         run: |
           cd frontend
-          ls -al  # List contents before building to verify file structure
           npm run build  # Run the Vite build process
-          ls -al  # List contents after build to confirm the build
-          ls -al frontend/dist  # List contents of dist folder to ensure the build output is created
 
-      # Step 6: Ensure the dist folder has correct permissions
+      # Step 6: List contents of the dist folder to ensure the build was successful
+      - name: List dist folder contents
+        run: |
+          cd frontend
+          ls -al dist
+
+      # Step 7: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
           cd frontend
           chmod -R 755 dist  # Ensure the dist folder is readable and writable
 
-      # Step 7: Deploy to GitHub Pages
+      # Step 8: Deploy to GitHub Pages using the JamesIves GitHub Pages Deploy Action
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
