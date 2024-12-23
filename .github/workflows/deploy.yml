@@ -39,7 +39,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./frontend/dist # Specify the build output folder (should match your Vite config)
+          folder: frontend/dist # Specify the build output folder (should match your Vite config)
 
     permissions:
       contents: write # Ensure the GitHub token has write access to contents
