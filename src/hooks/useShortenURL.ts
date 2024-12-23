@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://cleanuri.com/api/v1/shorten";
+const API_URL = "";
 // Initialize shortenedLinks as an array of objects
 export const useShortenURL = () => {
   const [shortenedLinks, setShortenedLinks] = useState<
