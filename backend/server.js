@@ -5,8 +5,12 @@ import cors from "cors";
 const app = express();
 const port = process.env.PORT || 5000; // Port for the Express server
 
+const corsOptions = {
+  origin: "https://friedaxons.github.io/url-shortening-api-landing-page/",
+  methods: ["GET", "POST"], // Allow GET and POST requests
+};
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json()); // To parse JSON request body
 
 // POST endpoint for shortening URLs
