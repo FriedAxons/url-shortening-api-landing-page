@@ -40,36 +40,31 @@ jobs:
       # Step 6: List the dist directory contents for debugging
       - name: List build output
         run: |
-          ls -la frontend/dist  # Ensure the dist folder has the build output
+          ls -la ./dist  # Ensure the dist folder is now in the root directory
 
       # Step 7: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
-          chmod -R 755 frontend/dist  # Ensure the dist folder is readable and writable
+          chmod -R 755 ./dist  # Ensure the dist folder is readable and writable
 
       # Step 8: Ensure the gh-pages branch exists, or create it if it doesn't
       - name: Create gh-pages branch if it doesn't exist
         run: |
           git fetch origin gh-pages || git checkout --orphan gh-pages
 
-      # Step 9: Move the dist folder to the root directory
-      - name: Move dist to root
-        run: |
-          mv frontend/dist/* .  # Move the build output to the root directory
-
-      # Step 10: Commit the build output to the gh-pages branch
+      # Step 9: Commit the build output to the gh-pages branch
       - name: Commit and push build to gh-pages
         run: |
           git add -A
           git commit -m "Deploy to GitHub Pages"
           git push --force --set-upstream origin gh-pages
 
-      # Step 11: Deploy to GitHub Pages using GitHub Pages Deploy Action
+      # Step 10: Deploy to GitHub Pages using GitHub Pages Deploy Action
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Deploy to the gh-pages branch
-          folder: ./  # Deploy from the root directory (where dist was moved)
+          folder: ./dist  # Specify the build output folder (now in the root)
           token: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
 
     permissions:
