@@ -32,19 +32,36 @@ jobs:
           cd frontend
           rm -rf dist  # Remove any old dist folder before building
 
-      # Step 5: Build the project with Vite
+      # Step 5: Build the project
       - name: Build project
         run: |
           cd frontend
           npm run build  # Run the Vite build process
 
-      # Step 6: Ensure the dist folder has correct permissions
+      # Step 6: List the dist directory contents for debugging
+      - name: List build output
+        run: |
+          ls -la frontend/dist  # Ensure the dist folder has the build output
+
+      # Step 7: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
           cd frontend
           chmod -R 755 dist  # Ensure the dist folder is readable and writable
 
-      # Step 7: Deploy to GitHub Pages
+      # Step 8: Ensure the gh-pages branch exists, or create it if it doesn't
+      - name: Create gh-pages branch if it doesn't exist
+        run: |
+          git fetch origin gh-pages || git checkout --orphan gh-pages
+
+      # Step 9: Commit the build output to the gh-pages branch
+      - name: Commit and push build to gh-pages
+        run: |
+          git add -A
+          git commit -m "Deploy to GitHub Pages"
+          git push --force --set-upstream origin gh-pages
+
+      # Step 10: Deploy to GitHub Pages using GitHub Pages Deploy Action
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
