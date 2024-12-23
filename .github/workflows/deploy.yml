@@ -20,27 +20,33 @@ jobs:
         with:
           node-version: "latest"
 
-      # Step 3: Install dependencies
+      # Step 3: Install frontend dependencies
       - name: Install frontend dependencies
         run: |
           cd frontend
           npm install
 
-      # Step 4: Build the project with Vite
+      # Step 4: Clean the dist folder (if it exists)
+      - name: Clean dist folder
+        run: |
+          cd frontend
+          rm -rf dist
+
+      # Step 5: Build the project with Vite
       - name: Build project
         run: |
           cd frontend
-          ls -al
-          npm run build
-          ls -al 
-          ls -al frontend/dist 
+          ls -al  # List contents before building
+          npm run build  # Build the project using Vite
+          ls -al  # List contents after build
+          ls -al frontend/dist  # List contents of dist folder to confirm build output
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist # Specify the build output folder (should match your Vite config)
+          folder: frontend/dist  # Specify the build output folder
           branch: gh-pages
 
     permissions:
-      contents: write # Ensure the GitHub token has write access to contents
+      contents: write  # Ensure the GitHub token has write access to contents
