@@ -29,6 +29,7 @@ jobs:
       # Step 4: Clean the dist folder (if it exists) before building
       - name: Clean dist folder
         run: |
+          cd frontend
           rm -rf dist  # Remove any old dist folder before building
 
       # Step 5: Build the project
@@ -40,32 +41,39 @@ jobs:
       # Step 6: List the dist directory contents for debugging
       - name: List build output
         run: |
-          ls -la ./dist  # Ensure the dist folder is now in the root directory
+          ls -la frontend/dist  # Ensure the dist folder has the build output
 
       # Step 7: Ensure the dist folder has correct permissions
       - name: Fix permissions on dist folder
         run: |
-          chmod -R 755 ./dist  # Ensure the dist folder is readable and writable
+          cd frontend
+          chmod -R 755 dist  # Ensure the dist folder is readable and writable
 
       # Step 8: Ensure the gh-pages branch exists, or create it if it doesn't
       - name: Create gh-pages branch if it doesn't exist
         run: |
           git fetch origin gh-pages || git checkout --orphan gh-pages
 
-      # Step 9: Commit the build output to the gh-pages branch
+      # Step 9: Configure Git user identity for commits
+      - name: Configure Git author
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"  # GitHub Actions email
+
+      # Step 10: Commit and push build to gh-pages
       - name: Commit and push build to gh-pages
         run: |
           git add -A
           git commit -m "Deploy to GitHub Pages"
           git push --force --set-upstream origin gh-pages
 
-      # Step 10: Deploy to GitHub Pages using GitHub Pages Deploy Action
+      # Step 11: Deploy to GitHub Pages using GitHub Pages Deploy Action
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Deploy to the gh-pages branch
-          folder: ./dist  # Specify the build output folder (now in the root)
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token
+          folder: frontend/dist  # Specify the build output folder
+          token: ${{ secrets.GITHUB_TOKEN }} # Use the provided Github token
 
     permissions:
       contents: read  # Ensure the GitHub token has read access to contents
