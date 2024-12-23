@@ -3,11 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Trigger the workflow on pushes to the main branch
+      - main  # Trigger the workflow on pushes to the main branch
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
       # Step 1: Checkout the repository code
@@ -26,27 +26,33 @@ jobs:
           cd frontend
           npm install
 
-      # Step 4: Clean the dist folder (if it exists)
+      # Step 4: Clean the dist folder (if it exists) before building
       - name: Clean dist folder
         run: |
           cd frontend
-          rm -rf dist
+          rm -rf dist  # Remove any old dist folder before building
 
       # Step 5: Build the project with Vite
       - name: Build project
         run: |
           cd frontend
-          ls -al  # List contents before building
-          npm run build  # Build the project using Vite
-          ls -al  # List contents after build
-          ls -al frontend/dist  # List contents of dist folder to confirm build output
+          ls -al  # List contents before building to verify file structure
+          npm run build  # Run the Vite build process
+          ls -al  # List contents after build to confirm the build
+          ls -al frontend/dist  # List contents of dist folder to ensure the build output is created
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 6: Ensure the dist folder has correct permissions
+      - name: Fix permissions on dist folder
+        run: |
+          chmod -R 755 frontend/dist  # Ensure the dist folder is readable and writable
+
+      # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: frontend/dist  # Specify the build output folder
-          branch: gh-pages
+          branch: gh-pages  # Ensure deployment is made to gh-pages branch
 
     permissions:
-      contents: write  # Ensure the GitHub token has write access to contents
+      contents: read  # Ensure the GitHub token has read access to contents
+      pages: write    # Required for writing to the gh-pages branch
