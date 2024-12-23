@@ -23,7 +23,7 @@ jobs:
       # Step 3: Install frontend dependencies
       - name: Install frontend dependencies
         run: |
-          cd frontend
+          cd ./frontend
           npm install
 
       # Step 4: Clean the dist folder (if it exists) before building
