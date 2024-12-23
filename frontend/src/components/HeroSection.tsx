@@ -18,7 +18,7 @@ const HeroSection = () => {
         </button>
       </div>
       <img
-        src="/url-shortening-api-landing-page/svgs/illustration-working.svg"
+        src="./svgs/illustration-working.svg"
         alt="Working Illustration"
         className="w-1/2"
       />
