@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000; // Port for the Express server
 // CORS setup to allow your frontend to talk to this backend
 const allowedOrigins = [
   "http://localhost:5173", // Local development
+  "https://friedaxons.github.io",
   "https://friedaxons.github.io/url-shortening-api-landing-page/", // Production
 ];
 
