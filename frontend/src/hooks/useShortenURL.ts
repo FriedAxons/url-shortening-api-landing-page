@@ -1,16 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://url-shortening-api-landing-page-5s4h.onrender.com";
-// Initialize shortenedLinks as an array of objects
+const API_URL =
+  "https://url-shortening-api-landing-page-5s4h.onrender.com/shorten";
+
 export const useShortenURL = () => {
   const [shortenedLinks, setShortenedLinks] = useState<
-    {
-      original: string;
-      short: string;
-    }[]
-  >([]); // Empty array as the initial state
-
+    { original: string; short: string }[]
+  >([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -18,43 +15,58 @@ export const useShortenURL = () => {
     setLoading(true);
     setError(null);
 
-    // Step 1: Clean and validate the URL
     const cleanUrl = url.trim();
 
-    // Step 2: Check for invalid characters
+    // Step 1: Check if URL contains invalid characters (spaces)
     if (cleanUrl.includes(" ")) {
       setError("URL contains spaces, which is not allowed.");
       setLoading(false);
       return;
     }
 
-    // Step 3: URL encode the URL to handle special characters
-    const encodedURL = encodeURIComponent(cleanUrl);
+    // Step 2: Validate URL format on the frontend
+    /*
+      The purpose of frontend validation is to provide immediate feedback to the user. This helps to quickly notify users if they've entered an invalid URL format before making an API call. It improves user experience because they won't have to wait for the server to respond before knowing their URL is invalid.
+
+      Frontend Validation is for user experience. It quickly catches basic mistakes and prevents unnecessary API calls.
+    */
+    if (!cleanUrl || !isValidUrl(cleanUrl)) {
+      setError("Please enter a valid URL.");
+      setLoading(false);
+      return;
+    }
 
     try {
-      // Step 4: Make the API request with the encoded URL
-      const response = await axios.post(API_URL, { url: encodedURL });
+      const response = await axios.post(API_URL, { url: cleanUrl });
+      console.log(response.data);
 
-      // Step 5: Update the state with the shortened link
       setShortenedLinks((prev) => [
         ...prev,
         { original: cleanUrl, short: response.data.result_url },
       ]);
-    } catch (err: unknown) {
+    } catch (err) {
       if (axios.isAxiosError(err)) {
-        // If the error is related to Axios (API request failure)
-        const errorMessage =
-          err?.response?.data?.error ||
-          "Failed to shorten the URL. Please try again.";
-        setError(errorMessage);
-      } else {
-        // Handle any other unexpected errors
-        setError("An unexpected error occurred.");
+        const status = err.response?.status;
+        if (status === 400) {
+          setError("Invalid URL. Please try again.");
+        } else {
+          setError("Server error. Please try later.");
+        }
       }
     } finally {
-      setLoading(false); // Stop loading regardless of success or failure
+      setLoading(false);
     }
   };
 
   return { shortenedLinks, error, loading, shortenURL };
 };
+
+// Frontend helper function to validate URLs
+function isValidUrl(url: string) {
+  try {
+    const parsedUrl = new URL(url);
+    return ["http:", "https:"].includes(parsedUrl.protocol);
+  } catch {
+    return false;
+  }
+}
