@@ -49,7 +49,7 @@ const ShortenURL = () => {
             {shortenedLinks.map((link, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center my-2"
+                className="flex justify-between items-center my-3 px-7 py-3 border"
               >
                 <p className="text-verydarkviolet">{link.original}</p>
                 <div className="flex items-center space-x-4">
@@ -63,12 +63,14 @@ const ShortenURL = () => {
                   </a>
                   <button
                     onClick={() => handleCopy(link.short, index)}
-                    className={`px-4 py-2 rounded text-white transition-colors ${
+                    className={`px-7 py-1.5 rounded text-white transition-colors ${
                       copiedIndex === index
                         ? "bg-darkviolet"
                         : "bg-cyan hover:bg-opacity-50"
                     }`}
-                  ></button>
+                  >
+                    {copiedIndex === index ? "Copied!" : "Copy"}
+                  </button>
                 </div>
               </li>
             ))}
