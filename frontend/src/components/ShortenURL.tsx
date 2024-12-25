@@ -62,7 +62,7 @@ const ShortenURL = () => {
         <button
           type="submit"
           disabled={loading}
-          className="lg:w-[11%] w-full bg-cyan hover:bg-cyanlight text-white lg:text-base text-lg lg:font-semibold font-medium lg:py-3.5 py-3 lg:mt-0 mt-4 rounded-lg"
+          className="lg:w-[11%] w-full bg-cyan hover:bg-cyanlight text-white lg:text-base text-lg lg:font-semibold font-medium lg:py-3.5 py-3 lg:mt-0 mt-4 mb-[15px] rounded-lg"
         >
           {loading ? "Shortening..." : "Shorten it!"}
         </button>
