@@ -4,10 +4,20 @@ import { useShortenURL } from "../hooks/useShortenURL";
 const ShortenURL = () => {
   const [url, setUrl] = useState("");
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null); // Track which link is copied
+  const [validationError, setValidationError] = useState("");
   const { shortenedLinks, error, loading, shortenURL } = useShortenURL();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if the input is empty
+    if (!url.trim()) {
+      setValidationError("Please add a link");
+      return;
+    }
+
+    // Clear validation error and proceed
+    setValidationError("");
     shortenURL(url); // Trigger URL shortening when the button is pressed
   };
 
@@ -21,19 +31,30 @@ const ShortenURL = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-row justify-between items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet px-12 py-10 rounded-lg"
+        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-10 py-5 lg:mt-10 mt-24 rounded-lg"
       >
-        <input
-          type="text"
-          placeholder="Shorten a link here..."
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          className="w-[89.5%] px-6 py-3 rounded-lg focus:outline-none"
-        />
+        <div className="w-full relative">
+          <input
+            type="text"
+            placeholder="Shorten a link here..."
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            className={`lg:w-[98.7%] w-full px-6 py-3.5 rounded-lg focus:outline-none placeholder:text-lg ${
+              validationError
+                ? "border-2 border-red placeholder:text-lg placeholder:text-red placeholder:opacity-50"
+                : ""
+            }`}
+          />
+          {validationError && (
+            <p className="absolute top-16 text-sm text-red italic">
+              {validationError}
+            </p>
+          )}
+        </div>
         <button
           type="submit"
           disabled={loading}
-          className="bg-cyan hover:bg-cyanlight text-white font-semibold px-8 py-3 rounded-lg"
+          className="lg:w-[11%] w-full bg-cyan hover:bg-cyanlight text-white lg:text-base text-lg lg:font-semibold font-medium lg:py-3.5 py-3 lg:mt-0 mt-4 rounded-lg"
         >
           {loading ? "Shortening..." : "Shorten it!"}
         </button>
