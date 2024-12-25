@@ -4,7 +4,7 @@ const Navbar = () => {
   const isMobile = useIsMobile();
 
   const MobileNavbar = () => (
-    <div className="flex flex-row justify-between items-center">
+    <div className="flex flex-row justify-between items-center lg:xy-p mxy-p">
       <img src="./svgs/logo.svg" alt="Logo" className="h-[30px]" />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@ const Navbar = () => {
   );
 
   const DesktopNavbar = () => (
-    <nav className="flex flex-row justify-between items-center">
+    <nav className="flex flex-row justify-between items-center lg:xy-p mxy-p">
       <div className="flex flex-row items-center text-grayishviolet text-sm font-semibold gap-x-9">
         <img src="./svgs/logo.svg" alt="Logo" className="h-[26px]" />
         <button className="hover:font-bold">Features</button>

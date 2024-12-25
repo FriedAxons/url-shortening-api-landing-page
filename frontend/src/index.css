@@ -9,11 +9,11 @@
 }
 
 @layer utilities {
-  .x-p {
+  .xy-p {
     @apply px-32 py-10;
   }
 
-  .mx-p {
+  .mxy-p {
     @apply px-5 py-8;
   }
 }

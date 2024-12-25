@@ -36,10 +36,10 @@ const ShortenURL = () => {
   };
 
   return (
-    <div>
+    <div className="lg:xy-p mxy-p">
       <form
         onSubmit={handleSubmit}
-        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-11 py-5 lg:mt-10 mt-24 rounded-lg"
+        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-11 py-5 lg:mt-0 mt-24 rounded-lg"
       >
         <div className="w-full relative">
           <input
@@ -62,7 +62,7 @@ const ShortenURL = () => {
         <button
           type="submit"
           disabled={loading}
-          className="lg:w-[11%] w-full bg-cyan hover:bg-cyanlight text-white lg:text-base text-lg lg:font-semibold font-medium lg:py-3.5 py-3 lg:mt-0 mt-4 mb-[15px] rounded-lg"
+          className="lg:w-[11%] w-full bg-cyan hover:bg-cyanlight text-white lg:text-base text-lg lg:font-semibold font-medium lg:py-3.5 py-3 lg:mt-0 mt-4 lg:mb-0 mb-[15px] rounded-lg"
         >
           {loading ? "Shortening..." : "Shorten it!"}
         </button>

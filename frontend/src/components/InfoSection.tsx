@@ -4,7 +4,7 @@ const InfoSection = () => {
   const isMobile = useIsMobile();
 
   const MobileInfoSection = () => (
-    <div>
+    <div className="lg:xy-p mxy-p">
       <div className="flex flex-col items-center">
         <h1>Advanced Statistics</h1>
         <p>
@@ -51,7 +51,7 @@ const InfoSection = () => {
   );
 
   const DesktopInfoSection = () => (
-    <div className="mt-36">
+    <div className="lg:xy-p mxy-p">
       <div className="flex flex-col items-center">
         <h1 className="text-4xl font-bold text-verydarkviolet">
           Advanced Statistics

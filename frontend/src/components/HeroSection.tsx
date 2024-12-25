@@ -4,7 +4,7 @@ const HeroSection = () => {
   const isMobile = useIsMobile();
 
   const DesktopHeroSection = () => (
-    <div className="flex flex-row justify-between items-center lg:pt-10 xl:pt-0">
+    <div className="flex flex-row justify-between items-center lg:pt-10 xl:pt-0 lg:xy-p mxy-p">
       <div className="w-1/2">
         <h1 className="w-full lg:leading-[80px] xl:leading-[110px] lg:text-7xl xl:text-8xl font-bold text-verydarkviolet">
           More than just shorter links
@@ -13,7 +13,7 @@ const HeroSection = () => {
           Build your brand's recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button className="py-2 px-7 mt-7 text-white bg-cyan hover:bg-opacity-50 rounded-full">
+        <button className="py-2.5 px-7 mt-7 text-white font-medium bg-cyan hover:bg-opacity-50 rounded-full">
           Get Started
         </button>
       </div>
@@ -26,7 +26,7 @@ const HeroSection = () => {
   );
 
   const MobileHeroSection = () => (
-    <div className="relative flex flex-col justify-center items-center">
+    <div className="relative flex flex-col justify-center items-center lg:xy-p mxy-p">
       <img
         src="/url-shortening-api-landing-page/svgs/illustration-working.svg"
         alt="Working Illustration"
