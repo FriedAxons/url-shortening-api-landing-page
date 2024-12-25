@@ -78,7 +78,7 @@ const ShortenURL = () => {
             {shortenedLinks.map((link, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center my-3 px-7 py-3 border border-gray border-opacity-90"
+                className="flex justify-between items-center my-3 px-7 py-3 border border-gray border-opacity-25"
               >
                 <p className="text-verydarkviolet">{link.original}</p>
                 <div className="flex items-center space-x-5">
