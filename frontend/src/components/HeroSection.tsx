@@ -9,7 +9,7 @@ const HeroSection = () => {
         <h1 className="w-full lg:leading-[80px] xl:leading-[110px] lg:text-7xl xl:text-8xl font-bold text-verydarkviolet">
           More than just shorter links
         </h1>
-        <p className="pr-40 lg:text-lg xl:text-xl text-gray font-medium">
+        <p className="pr-40 lg:text-lg xl:text-xl text-grayishviolet">
           Build your brand's recognition and get detailed insights on how your
           links are performing.
         </p>

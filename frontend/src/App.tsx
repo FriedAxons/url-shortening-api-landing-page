@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ShortenURL from "./components/ShortenURL";
+import InfoSection from "./components/InfoSection";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <ShortenURL />
+      <InfoSection />
     </div>
   );
 };
