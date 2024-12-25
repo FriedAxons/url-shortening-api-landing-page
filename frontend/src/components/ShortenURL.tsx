@@ -4,7 +4,7 @@ import { useShortenURL } from "../hooks/useShortenURL";
 const ShortenURL = () => {
   const [url, setUrl] = useState("");
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null); // Track which link is copied
-  const [validationError, setValidationError] = useState("");
+  const [validationError, setValidationError] = useState<string | null>(null);
   const { shortenedLinks, error, loading, shortenURL } = useShortenURL();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -13,12 +13,20 @@ const ShortenURL = () => {
     // Check if the input is empty
     if (!url.trim()) {
       setValidationError("Please add a link");
-      return;
+    } else {
+      setValidationError(null);
+      shortenURL(url); // Trigger URL shortening when the button is pressed
     }
+  };
 
-    // Clear validation error and proceed
-    setValidationError("");
-    shortenURL(url); // Trigger URL shortening when the button is pressed
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    setUrl(input);
+
+    // Clear error if input is not empty
+    if (input.trim()) {
+      setValidationError(null);
+    }
   };
 
   const handleCopy = (shortLink: string, index: number) => {
@@ -31,22 +39,22 @@ const ShortenURL = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-10 py-5 lg:mt-10 mt-24 rounded-lg"
+        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-11 py-5 lg:mt-10 mt-24 rounded-lg"
       >
         <div className="w-full relative">
           <input
             type="text"
             placeholder="Shorten a link here..."
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={handleInputChange}
             className={`lg:w-[98.7%] w-full px-6 py-3.5 rounded-lg focus:outline-none placeholder:text-lg ${
               validationError
-                ? "border-2 border-red placeholder:text-lg placeholder:text-red placeholder:opacity-50"
+                ? "outline outline-2 outline-red placeholder:text-lg placeholder:text-red placeholder:opacity-50"
                 : ""
             }`}
           />
           {validationError && (
-            <p className="absolute top-16 text-sm text-red italic">
+            <p className="absolute top-[60px] text-sm text-red italic">
               {validationError}
             </p>
           )}
@@ -61,7 +69,7 @@ const ShortenURL = () => {
       </form>
 
       {/* Display error message */}
-      {error && <p>{error}</p>}
+      {error && <p className="mt-2 text-red font-medium">{error}</p>}
 
       {/* Display shortened URLs */}
       {shortenedLinks.length > 0 && (
@@ -70,10 +78,10 @@ const ShortenURL = () => {
             {shortenedLinks.map((link, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center my-3 px-7 py-3 border"
+                className="flex justify-between items-center my-3 px-7 py-3 border border-gray border-opacity-50"
               >
                 <p className="text-verydarkviolet">{link.original}</p>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-5">
                   <a
                     href={link.short}
                     target="_blank"

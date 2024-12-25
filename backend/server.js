@@ -3,7 +3,7 @@ import axios from "axios";
 import cors from "cors";
 
 const app = express();
-const port = process.env.PORT || 5000; // Port for the Express server
+const port = 5000;
 
 // CORS setup to allow your frontend to talk to this backend
 const allowedOrigins = ["https://friedaxons.github.io"];
