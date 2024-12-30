@@ -45,7 +45,7 @@ const InfoSection = () => {
           <h2 className="text-2xl font-bold text-verydarkviolet mb-5">
             Detailed Records
           </h2>
-          <p className="text-grayishviolet font-medium mb-10">
+          <p className="w-[87%] text-grayishviolet font-medium mb-10">
             Gain insights into who is clicking your links. Knowing when and
             where people engage with your content helps inform better decisions.
           </p>
