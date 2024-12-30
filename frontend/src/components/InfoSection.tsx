@@ -85,7 +85,7 @@ const InfoSection = () => {
         </p>
       </div>
 
-      <div className="relative flex flex-row justify-center">
+      <div className="relative flex flex-row justify-center pb-20">
         <div className="max-h-[320px] w-[360px] bg-white p-6 rounded-lg shadow-lg">
           <div className="flex justify-center items-center bg-darkviolet w-20 h-20 mb-8 rounded-full">
             <img
