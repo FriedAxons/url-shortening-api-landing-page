@@ -1,6 +1,6 @@
 const GetStarted = () => {
   return (
-    <div className="flex flex-col items-center bg-[url('/svgs/bg-boost-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:py-12 py-24 gap-y-5">
+    <div className="flex flex-col items-center bg-[url('/svgs/bg-boost-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:py-14 py-24 gap-y-5">
       <h1 className="lg:text-4xl text-2xl text-white font-bold">
         Boost your links today
       </h1>

@@ -4,7 +4,7 @@
 
 @layer base {
   #root {
-    @apply font-poppins;
+    @apply h-screen overflow-auto font-poppins no-scrollbar;
   }
 }
 
@@ -15,5 +15,14 @@
 
   .mxy-p {
     @apply px-5 py-8;
+  }
+
+  .no-scrollbar {
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
