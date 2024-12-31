@@ -10,7 +10,7 @@ const Footer = () => {
           xmlns="http://www.w3.org/2000/svg"
           width="121"
           height="33"
-          className="mb-9 mt-4"
+          className="mb-12 mt-5"
         >
           <path
             fill="#fff"
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="socials flex flex-row items-center justify-center w-1/2 mt-10 ml-4">
+        <div className="socials flex flex-row items-center justify-center w-1/2 mt-12 ml-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="hover:cursor-pointer fill-white hover:fill-cyan transition-colors duration-300"
