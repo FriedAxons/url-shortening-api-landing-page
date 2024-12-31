@@ -39,7 +39,9 @@ const ShortenURL = () => {
     <div className="lg:xy-p mxy-p">
       <form
         onSubmit={handleSubmit}
-        className="lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-11 py-5 lg:mt-0 mt-24 rounded-lg"
+        className={`lg:flex lg:flex-row lg:justify-between flex flex-col items-center bg-[url('/svgs/bg-shorten-desktop.svg')] bg-cover bg-no-repeat bg-darkviolet lg:px-12 px-5 lg:py-11 py-5 lg:mt-0 mt-24 rounded-lg ${
+          validationError ? "lg:space-y-0 space-y-9" : ""
+        }`}
       >
         <div className="w-full relative">
           <input
