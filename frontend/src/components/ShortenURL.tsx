@@ -76,7 +76,7 @@ const ShortenURL = () => {
       {/* Display shortened URLs */}
       {shortenedLinks.length > 0 && (
         <div>
-          <ul>
+          <ul className="gap-y-6">
             {shortenedLinks.map((link, index) => (
               <li
                 key={index}
