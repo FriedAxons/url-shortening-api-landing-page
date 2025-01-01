@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor](https://your-solution-url.com)
-- Live Site URL: [GitHub Live Page](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-solution-roxtwOcsfc)
+- Live Site URL: [GitHub Live Page](https://friedaxons.github.io/url-shortening-api-landing-page/)
 
 ### Built with
 
