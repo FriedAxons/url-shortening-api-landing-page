@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const MobileNavbar = () => (
     <div className="flex flex-row justify-between items-center lg:xy-p mxy-p">
-      <img src="./svgs/logo.svg" alt="Logo" className="h-[30px]" />
+      <img src="./svgs/logo.svg" alt="Logo" className="h-[34px]" />
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -24,31 +24,24 @@ const Navbar = () => {
       </svg>
 
       {isMenuOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white w-3/4 rounded-lg p-6 space-y-6">
+        <div className="absolute top-[-8%] left-0 w-full h-full z-50 flex justify-center items-center">
+          <div className="bg-darkviolet w-[87%] rounded-xl px-6 py-9 space-y-6">
             {/* Navigation Links */}
-            <button className="w-full text-center py-2 text-grayishviolet hover:font-bold">
+            <button className="w-full text-xl text-center py-2 text-white font-semibold hover:font-bold">
               Features
             </button>
-            <button className="w-full text-center py-2 text-grayishviolet hover:font-bold">
+            <button className="w-full text-xl text-center py-2 text-white font-semibold hover:font-bold">
               Pricing
             </button>
-            <button className="w-full text-center py-2 text-grayishviolet hover:font-bold">
+            <button className="w-full text-xl text-center py-2 text-white font-semibold hover:font-bold">
               Resources
             </button>
-            <button className="w-full text-center py-2 text-grayishviolet hover:font-bold">
+            <div className="border border-gray border-opacity-10"></div>
+            <button className="w-full text-xl text-center py-2 text-white font-semibold hover:font-bold">
               Login
             </button>
-            <button className="w-full text-center py-2 text-white bg-cyan hover:bg-opacity-50 rounded-full">
+            <button className="w-full text-xl text-center py-2.5 text-white bg-cyan hover:bg-cyanlight rounded-full">
               Sign Up
-            </button>
-
-            {/* Close Button */}
-            <button
-              onClick={toggleMenu}
-              className="absolute top-4 right-4 text-grayishviolet text-xl font-bold"
-            >
-              X
             </button>
           </div>
         </div>
