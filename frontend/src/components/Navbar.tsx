@@ -8,6 +8,7 @@ const Navbar = () => {
   // Toggle the mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    console.log("Menu state:", !isMenuOpen);
   };
 
   const MobileNavbar = () => (
@@ -24,8 +25,8 @@ const Navbar = () => {
       </svg>
 
       {isMenuOpen && (
-        <div className="absolute top-[-8%] left-0 w-full h-full z-50 flex justify-center items-center">
-          <div className="bg-darkviolet w-[87%] rounded-xl px-6 py-9 space-y-5">
+        <div className="absolute sm:top-[-6%] md:top-[-16%] left-0 w-full h-full z-50 flex justify-center items-center">
+          <div className="bg-darkviolet w-[87%] rounded-xl px-6 py-10 space-y-5">
             {/* Navigation Links */}
             <button className="w-full text-xl text-center py-2 text-white font-semibold hover:font-bold">
               Features
